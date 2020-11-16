@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+
+<body onload="IniciarJogo()">
+
+    <link rel="stylesheet" href="../estilos/principal.css">
+
+ 
+
+    <div class="container">
+        <div id="game" class="justify-content-center flex-column align-items-center">
+            <div>
+                <img id="question-image" class="image">
+            </div>
+            <div id="question" class="question">
+            </div>
+            <div id="question-container">
+                <div class="question-container-option">
+                    <p class="questionOption">A - </p>
+                    <p id="questionA" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+                <div class="question-container-option">
+                    <p class="questionOption">B - </p>
+                    <p id="questionB" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+                <div class="question-container-option">
+                    <p class="questionOption">C - </p>
+                    <p id="questionC" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+                <div class="question-container-option">
+                    <p class="questionOption">D - </p>
+                    <p id="questionD" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+
+            </div>
+        </div>
+        <div id="count" class="question-count"></div>
+
+    </div>
+    </div>
+
+    <script type="text/javascript">
+
+        let questionCount = 0;
+        let score = 0;
+        const question = document.getElementById("question");
+        const questionA = document.getElementById("questionA");
+        const questionB = document.getElementById("questionB");
+        const questionC = document.getElementById("questionC");
+        const questionD = document.getElementById("questionD");
+        const img = document.getElementById("question-image");
+        const count = document.getElementById("count");
+        function IniciarJogo() {
+
+            novaQuestao();
+
+        }
+
+        limparCores = () => {
+            questionA.style.backgroundColor = "";
+            questionB.style.backgroundColor = "";
+            questionC.style.backgroundColor = "";
+            questionD.style.backgroundColor = "";
+        }
+
+        limparCampos = () => {
+            questionA.innerHTML = "";
+            questionB.innerHTML = "";
+            questionC.innerHTML = "";
+            questionD.innerHTML = "";
+            count.innerHTML = "Fim de Jogo";
+        }
+
+        novaQuestao = () => {
+            questionCount++;
+            count.innerHTML = 'Questão ' + questionCount + '/10';
+
+            switch (questionCount) {
+                case 1:
+                    img.src = "../imagens/QUESTAO 1.jpg"
+                    setTimeout(function () { (question.innerHTML = '1)	Como se chama o primeiro desenhado animado <i>Walt Disney</i>?'); }, 100);
+                    setTimeout(function () { (questionA.innerHTML = ' Laugh-O-Grams'); }, 2500);
+                    setTimeout(function () { (questionB.innerHTML = ' Mickey Mouse'); }, 2600);
+                    setTimeout(function () { (questionC.innerHTML = ' A Branca de Neve e os Sete Anões'); }, 2700);
+                    setTimeout(function () { (questionD.innerHTML = ' Cinderela'); }, 2800);
+                    break;
+
+                case 2:
+                    img.src = "../imagens/QUESTAO 2.jpg"
+                    question.innerHTML = '2)	Qual é a tradução para a expressão ‘<i>Hakuna Matata</i>’?'
+                    questionA.innerHTML = ' Não se renda '
+                    questionB.innerHTML = ' Esqueça o passado.'
+                    questionC.innerHTML = ' Não se preocupe'
+                    questionD.innerHTML = ' Não fique triste'
+                    break;
+
+                case 3:
+                    img.src = "../imagens/QUESTAO 3.jpg"
+                    question.innerHTML = '3)	Qual era o código do Planeta Terra no filme Lilo & Stitch?'
+                    questionA.innerHTML = ' Era simplesmente Terra'
+                    questionB.innerHTML = ' Área 51'
+                    questionC.innerHTML = ' Experimento 626'
+                    questionD.innerHTML = ' Marte'
+                    break;
+
+                case 4:
+                    img.src = "../imagens/QUESTAO 4.jpg"
+                    question.innerHTML = '4)	Com apenas 14 anos, qual é a princesa mais jovem da Disney?'
+                    questionA.innerHTML = ' Merida'
+                    questionB.innerHTML = ' Jasmine'
+                    questionC.innerHTML = ' Ariel'
+                    questionD.innerHTML = ' Branca de Neve '
+                    break;
+
+                case 5:
+                    img.src = "../imagens/QUESTAO 5.jpg"
+                    question.innerHTML = '5)	Qual animação dá origem ao Guaxinin chamado Meeko?'
+                    questionA.innerHTML = ' Pocahontas'
+                    questionB.innerHTML = ' Mulan'
+                    questionC.innerHTML = ' Tiana'
+                    questionD.innerHTML = ' Lilo&Stitch '
+                    break;
+
+                case 6:
+                    img.src = "../imagens/QUESTAO 6.jpeg"
+                    question.innerHTML = '6)	Na batalha final em Aladdin, o vilão Javar se transforma em um animal. Qual seria este animal?'
+                    questionA.innerHTML = ' Escorpião'
+                    questionB.innerHTML = ' Cobra'
+                    questionC.innerHTML = ' Gênio'
+                    questionD.innerHTML = ' Dragão '
+                    break;
+
+                case 7:
+                    img.src = "../imagens/QUESTAO 7.jpg"
+                    question.innerHTML = '7)	Qual princesa teve que beijar o vilão principal contra sua vontade?'
+                    questionA.innerHTML = ' Megara'
+                    questionB.innerHTML = ' Bela'
+                    questionC.innerHTML = ' Anna'
+                    questionD.innerHTML = ' Jasmine '
+                    break;
+
+                case 8:
+                    img.src = "../imagens/QUESTAO 8.jpg"
+                    question.innerHTML = '8)	A Disney Criou um filme que reúne todos os seus vilões. Qual o nome do filme?'
+                    questionA.innerHTML = ' A Vingança dos vilões da Disney'
+                    questionB.innerHTML = ' Vilões contra-atacam '
+                    questionC.innerHTML = ' Os vilões da Disney '
+                    questionD.innerHTML = ' Dia das bruxas '
+                    break;
+
+                case 9:
+                    img.src = "../imagens/QUESTAO 9.jpg"
+                    question.innerHTML = '9)	Qual o verdadeiro nome do Príncipe em “Rapunzel”?'
+                    questionA.innerHTML = ' José Bezerra'
+                    questionB.innerHTML = '  Flynn Rider '
+                    questionC.innerHTML = ' Jafar '
+                    questionD.innerHTML = ' João Carlos '
+                    break;
+
+                case 10:
+                    img.src = "../imagens/QUESTAO 10.jpg"
+                    question.innerHTML = '10)	De qual filme é a música “Cores do vento?”'
+                    questionA.innerHTML = ' Frozen 2'
+                    questionB.innerHTML = '  Pocahontas '
+                    questionC.innerHTML = ' Ariel '
+                    questionD.innerHTML = ' Cinderela '
+                    break;
+
+                case 11 :
+                    FimDeJogo(score)
+
+            }
+
+
+        }
+
+        FimDeJogo = (score) => {
+            if (score <= 30)
+            {
+                img.src = "../imagens/1-final.gif"
+                question.innerHTML = 'Sua pontuação:' + score + '/100' + '<br>' +
+                'Que pena! Parece que você não é um conhecedor sobre o universo Disney, tente novamente!'
+                limparCampos()
+                limparCores()
+        
+
+            } else if (score > 30 && score <= 50) {
+                img.src = "../imagens/2-final.gif"
+                question.innerHTML = 'Sua pontuação:' + score + '/100' +  '<br>' +
+                'Parece que você não sabe tudo sobre o universo Disney mas pode melhorar!'
+                limparCampos()
+                limparCores()
+            } else {
+                img.src = "../imagens/3-final.gif"
+                question.innerHTML = 'Sua pontuação:' + score + '/100' + '<br>' +
+                'Parabéns,você conhece tudo sobre o universo Disney!'
+                limparCampos()
+                limparCores()
+            }
+        }
+
+
+        VerificarResposta = (id) => {
+            console.log(id);
+            console.log(questionCount);
+
+            var optionClicked = document.getElementById(id);
+
+            switch (questionCount) {
+                case 1:
+                    if (id == "questionA") {
+
+                        questionA.style.backgroundColor = "#39C919"
+                        score = score + 10;
+                    } else {
+                        questionA.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 2:
+                    if (id == "questionC") {
+
+                        questionC.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionC.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 3:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 4:
+                    if (id == "questionD") {
+                        questionD.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionD.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 5:
+                    if (id == "questionA") {
+                        questionA.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionA.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 6:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 7:
+                    if (id == "questionD") {
+                        questionD.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionD.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 8:
+                    if (id == "questionC") {
+                        questionC.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionC.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 9:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 10:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+               
+
+            }
+
+            setTimeout(function () {
+                console.log(score);
+                limparCores();
+                novaQuestao();
+            }, 2700);
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
